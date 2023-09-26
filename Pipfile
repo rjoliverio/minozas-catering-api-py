@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+mysqlclient = "*"
+django-environ = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+server = "python manage.py runserver"
+migrate = "python manage.py migrate"
