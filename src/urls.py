@@ -16,11 +16,16 @@ Including another URLconf
 """
 from django.urls import include, path
 from src.views import health_check
+from src.views import MenuTypeView, RetrieveMenuTypeView
 
 api_urls = [
-    path('', health_check, name='health_check'),
+    path("", health_check, name="health_check"),
+    path("menu_types/", MenuTypeView.as_view(), name="menu_types"),
+    path(
+        "menu_types/<int:id>/", RetrieveMenuTypeView.as_view(), name="update_menu_type"
+    ),
 ]
 
 urlpatterns = [
-    path('', include(api_urls)),
+    path("", include(api_urls)),
 ]
